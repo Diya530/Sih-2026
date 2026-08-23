@@ -1315,53 +1315,53 @@ const LandingPage = () => {
 
 const TECH_COMPONENTS = [
   {
-    icon: HardHat,
-    title: 'Helmet Sensors',
-    summary: 'The core sensing unit worn by each worker, combining environmental and vital monitoring in a single helmet-mounted node.',
-    details: 'Content to be finalized — this section is structured so hardware specs can be dropped in directly.'
-  },
-  {
-    icon: Wind,
-    title: 'Environmental Sensors',
-    summary: 'Continuous monitoring of CH4, CO, O2, H2S, temperature, and humidity around each worker.',
-    details: 'Readings feed directly into the AI Risk Engine for real-time hazard scoring.'
-  },
-  {
-    icon: Activity,
-    title: 'Worker / Vital Monitoring',
-    summary: '6-axis IMU for fall, impact, and inactivity detection, paired with GPS-based location tracking.',
-    details: 'Designed to flag worker-specific emergencies independent of environmental conditions.'
-  },
-  {
-    icon: Radio,
-    title: 'LoRa Communication',
-    summary: 'Long-range, low-power wireless link connecting each helmet node back to the site infrastructure.',
-    details: 'Content to be finalized — add link budget, range, and protocol details here.'
-  },
-  {
-    icon: Wifi,
-    title: 'LoRa Gateway',
-    summary: 'Central receiver that aggregates telemetry from all active helmet nodes on site.',
-    details: 'Content to be finalized — add gateway hardware and coverage details here.'
-  },
-  {
-    icon: Server,
-    title: 'Data Transmission',
-    summary: 'Sensor data is relayed from the gateway to the Command Center for processing and storage.',
-    details: 'Content to be finalized — add transmission architecture and data pipeline details here.'
-  },
-  {
-    icon: ShieldAlert,
-    title: 'Emergency / Hazard Detection',
-    summary: 'Multi-sensor risk fusion identifies escalating danger before it becomes critical, triggering alerts.',
-    details: 'Combines gas, thermal, and worker-safety signals into a single risk score per worker.'
-  },
-  {
-    icon: LayoutDashboard,
-    title: 'Command Center',
-    summary: 'Central dashboard for live monitoring, personnel tracking, alerts, and AI-driven intelligence.',
-    details: 'Operators get real-time visibility across every sector and worker on site.'
-  },
+  icon: HardHat,
+  title: 'Helmet Sensors',
+  summary: 'The core sensing unit worn by each worker, combining environmental hazard detection, worker-safety monitoring, and location tracking in a single helmet-mounted node.',
+  details: 'Proposed node: ESP32-S3 with gas, temperature, humidity, motion, and GPS sensors. The node performs local filtering, timestamping, and safety checks before transmitting telemetry.'
+},
+{
+  icon: Wind,
+  title: 'Environmental Sensors',
+  summary: 'Continuous monitoring of CH₄, CO, O₂, H₂S, temperature, and humidity around each worker.',
+  details: 'Proposed sensing layer includes dedicated gas sensors for methane, carbon monoxide, oxygen, and hydrogen sulfide, along with a temperature and humidity sensor. Readings are evaluated by the AI Risk Engine for real-time hazard scoring.'
+},
+{
+  icon: Activity,
+  title: 'Worker / Vital Monitoring',
+  summary: '6-axis IMU for fall, impact, and inactivity detection, paired with GPS-based location tracking.',
+  details: 'An accelerometer and gyroscope detect falls, impacts, sudden motion, and prolonged inactivity. GPS provides the worker’s location so emergencies can be associated with a specific worker and zone.'
+},
+{
+  icon: Radio,
+  title: 'LoRa Communication',
+  summary: 'Long-range, low-power wireless link connecting each helmet node back to the site infrastructure.',
+  details: 'LoRa provides low-power, long-range communication between helmet nodes and the site gateway, allowing telemetry and emergency events to be transmitted across large work areas.'
+},
+{
+  icon: Wifi,
+  title: 'LoRa Gateway',
+  summary: 'Central receiver that aggregates telemetry from all active helmet nodes on site.',
+  details: 'The gateway receives telemetry from multiple helmet nodes and forwards aggregated data to the backend, creating the communication bridge between field workers and the Command Center.'
+},
+{
+  icon: Server,
+  title: 'Data Transmission',
+  summary: 'Sensor data is relayed from the gateway to the Command Center for processing and storage.',
+  details: 'Telemetry follows the pipeline: Sensors → ESP32-S3 → LoRa → Gateway → MQTT → FastAPI → AI Risk Engine → Command Center.'
+},
+{
+  icon: ShieldAlert,
+  title: 'Emergency / Hazard Detection',
+  summary: 'Multi-sensor risk fusion identifies escalating danger before it becomes critical, triggering alerts.',
+  details: 'Gas concentrations, temperature, worker motion, location, and historical trends are combined into a worker-specific risk score. Critical conditions trigger alerts for both the worker and Command Center.'
+},
+{
+  icon: LayoutDashboard,
+  title: 'Command Center',
+  summary: 'Central dashboard for live monitoring, personnel tracking, alerts, and AI-driven intelligence.',
+  details: 'Operators get real-time visibility across workers and zones, including sensor telemetry, worker locations, risk scores, emergency alerts, and AI-driven response recommendations.'
+}
 ];
 
 const TechnologyPage = () => {
